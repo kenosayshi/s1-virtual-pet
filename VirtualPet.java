@@ -45,6 +45,10 @@ public class VirtualPet {
         );
         return s;
     }
+
+    public int showChoiceDialog(String question, String firstOption, String secondOption) {
+    return face.showChoiceDialog(question, firstOption, secondOption);
+    }
     
     public void sleep() {
         hunger = hunger + 1;
@@ -54,5 +58,25 @@ public class VirtualPet {
     public void wonTheLottery(){
         face.setImage("ecstatic");
     }
+    public void hot(){
+        face.setImage("hot");
+    }
+    public void burning(){
+        face.setImage("burning");
+        }
+    public void cold(){
+        face.setImage("cold");
+    }
+    public void freezing(){
+        face.setImage("freezing");
+    }
+    public void setMessage(String s){
+        face.setMessage(s);
+    }
+
+    public void setImage(String s){
+        face.setImage(s);
+    }
+
 
 } // end Virtual Pet
