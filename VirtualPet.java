@@ -3,6 +3,10 @@
  * @author Cam
  * @author ?
  */
+
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
 public class VirtualPet {
     
     VirtualPetFace face;
@@ -21,7 +25,8 @@ public class VirtualPet {
         } else {
             hunger = 0;
         }
-        face.setMessage("Yum, thanks");
+        face.setMessage("Feed me.");
+        askForInput("Feed?");
         face.setImage("normal");
     }
     
@@ -29,6 +34,16 @@ public class VirtualPet {
         hunger = hunger + 3;
         face.setMessage("1, 2, 3, jump.  Whew.");
         face.setImage("tired");
+    }
+
+    public String askForInput(String q){
+        String s = (String)JOptionPane.showInputDialog(
+                    new JFrame(),
+                    q,
+                    "Input Dialog",
+                    JOptionPane.PLAIN_MESSAGE
+        );
+        return s;
     }
     
     public void sleep() {

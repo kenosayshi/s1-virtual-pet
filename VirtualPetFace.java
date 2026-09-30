@@ -127,6 +127,51 @@ public class VirtualPetFace extends JFrame implements ActionListener{
         setAlwaysOnTop(true);
         setAlwaysOnTop(false);
     }
+
+    public void createGUI2() {
+        setMaximumSize(new Dimension(WIDTH, HEIGHT));
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setSize(new Dimension(WIDTH, HEIGHT));
+        Container contentPane = this.getContentPane();
+        contentPane.setLayout(new GridBagLayout());
+        contentPane.setBackground(Color.white);
+       
+        
+        imagePanel = new ImagePanel();
+        int width = 200;
+        int height = 200;
+        imagePanel.setPreferredSize(new Dimension(width, height));
+        imagePanel.setMinimumSize(new Dimension(width, height));
+        imagePanel.setBorder(BorderFactory.createLineBorder(Color.black, 2));
+        GridBagConstraints c = new GridBagConstraints();
+        c.fill = GridBagConstraints.HORIZONTAL;
+        c.gridx = 1;
+        c.gridy = 1;
+        contentPane.add(imagePanel,c);
+        
+        textArea = new JTextPane();
+        textArea.setEditable(false);
+        JScrollPane scroll = new JScrollPane(textArea);
+        scroll.setPreferredSize(new Dimension(width, height/2));
+        scroll.setSize(new Dimension(width, height/2));
+        textArea.setPreferredSize(new Dimension(width, height/2));
+        textArea.setSize(new Dimension(width, height/2));
+        Font f = new Font(Font.SANS_SERIF,Font.BOLD, 16);
+        textArea.setFont(f);
+
+        c.fill = GridBagConstraints.HORIZONTAL;
+        c.gridwidth = 2;
+        c.gridx = 0;
+        c.gridy = 2;
+        c.ipady = 20;
+        contentPane.add(scroll, c);
+    
+        setLocationRelativeTo(null);
+        setVisible(true);
+        //toFront();
+        setAlwaysOnTop(true);
+        setAlwaysOnTop(false);
+    }
     
     private void setBackground() {
         Image backImage = createImage(base+"background.png", "");
