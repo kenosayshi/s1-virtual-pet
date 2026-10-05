@@ -36,7 +36,7 @@ public class VPMain extends JFrame {
 					waitABeat(700);
 					vp.setMessage("why won't you give me water?");
 					waitABeat(200);
-					vp.setImage("angry");
+					vp.setImage("enraged");
 
 					int c4 = vp.showChoiceDialog("Will you give me water?", "Yes", "No");
 					if (c4 == 1) {
@@ -78,33 +78,63 @@ public class VPMain extends JFrame {
 				vp.setImage("hot");
 				vp.setMessage("Sure is hot here!");
 				waitABeat(300);
+				vp.setMessage("Lets go to somewhere colder!");
+				c1 = 1;
 			}
 		}
 
 
 		//antarctica storyline
-		else {
+		if (c1 == 1) {
 			vp.setMessage("Ok lets go!");
-			waitABeat(1);
+			waitABeat(1000);
 			int b = vp.showChoiceDialog("Man it's pretty cold here, can we go home?", "yes", "no");
 			waitABeat(300);
 			if (b == 0) {
 				vp.setMessage("thanks bro I think I almost died");
-				waitABeat(3000);
+				waitABeat(5000);
+				vp.setImage("happy");
+				vp.setMessage("You and your pet went home, and he is thriving now, congrats you are a good owner.");
 			} else {
 				vp.setMessage("Ok… I guess");
 				waitABeat(1000);
 				vp.setMessage("I can't feel my hands I need some soup!");
 				waitABeat(300);
-				String b1 = vp.askForInput("Feed him?");
 				int b2 = vp.showChoiceDialog("Feed him?", "yes", "no");
 				if (b2 == 0) {
 					vp.setMessage("whew that's better");
-				} else
+					waitABeat(1200);
+					int b21 = vp.showChoiceDialog("What should we do now?", "climb Mount Everest", "go home");
+					if (b21 == 0);
+						vp.setImage("tired");
+						waitABeat(1200);
+						vp.setMessage("bro... why?");
+						waitABeat(1200);
+						vp.setMessage("fine, lets go now");
+						waitABeat(5000);
+						vp.setImage("ecstatic");
+						waitABeat(1200);
+						vp.setMessage("after five days of voyage, you died, but your pet survived, you are a bad owner. (He never cared about you anyways)");
+				} 
+				else
 					vp.setImage("cold");
+					waitABeat(1200);
+					vp.setMessage("If I don't get fed soon, I will die!");
+					waitABeat(1200);
+					int b3 = vp.showChoiceDialog("Are you sure you don't want to feed him?", "yes", "no");
+					if (b3 == 0) {
+						vp.setMessage("Thanks Man, but since you didn't feed me before I will leave");
+						waitABeat(5000);
+						vp.setMessage("Your pet has left, you are a bad owner!");
+					}
+					else
+					vp.setImage("skeleton");
+					waitABeat(5000);
+					vp.setMessage("your pet has died, you are the worst owner!");
+					}
 			}
 		}
-	}
+	
 
 	public void waitABeat(int ms) {
 		try {
