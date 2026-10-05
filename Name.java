@@ -19,6 +19,14 @@ public class Name {
         return part;
     }
 
+    public String myFirst(){
+        return this.first;
+    }
+
+    public boolean isSame(Name other){
+        return this.myFirst() == other.myFirst();
+    }
+
     public static void main(String[] args) {
         Name n = new Name("Sean", "");
         System.out.println(n.fullName());
